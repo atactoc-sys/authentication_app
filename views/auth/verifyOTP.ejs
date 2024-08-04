@@ -1,0 +1,45 @@
+<!-- views/auth/verifyOTP.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verify OTP</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h2>Verify OTP</h2>
+        <form action="/auth/verify-otp/<%= user._id %>" method="POST">
+            <label for="otp">Enter OTP:</label>
+            <input type="text" id="otp" name="otp" required>
+            <button type="submit">Verify OTP</button>
+        </form>
+        <% if (error) { %>
+            <p>
+                <%= error %>
+            </p>
+            <% } %>
+                <% if (success) { %>
+                    <p>
+                        <%= success %>
+                    </p>
+                    <form action="/auth/reset-password/<%= user._id %>" method="POST">
+                        <div>
+                            <label for="newPassword">New Password:</label>
+                            <input type="password" id="newPassword" name="newPassword" required>
+                        </div>
+                        <div>
+                            <label for="newPassword2">Confirm Password:</label>
+                            <input type="password" id="newPassword2" name="newPassword2" required>
+                        </div>
+                        <a href="/auth/reset-password/<%= user._id %>">Reset Password</a>
+
+                    </form>
+                    <% } %>
+    </div>
+</body>
+
+</html>

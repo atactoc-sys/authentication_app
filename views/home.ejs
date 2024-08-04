@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOME PAGEE</title>
+    <link rel="stylesheet" href="/css/homestyle.css" />
+</head>
+
+<body>
+    <div class="home-container">
+        <div class="welcome-box">
+            <% if (user) { %>
+                <div class="greeting">
+                    <h2 class="welcome-message">Welcome, <%= user.name %>
+                    </h2>
+                </div>
+                <div class="actions">
+                    <a href="/auth/logout" class="btn btn-logout">Sign Out</a>
+
+                    <a href="/auth/change-password" class="btn btn-reset">Change Password</a>
+                </div>
+                <% } else { %>
+                    <div class="greeting">
+                        <h2 class="welcome-message">Welcome to this website</h2>
+                    </div>
+                    <div class="actions">
+                        <a href="/auth/login" class="btn btn-login">Login</a>
+
+                        <a href="/auth/signup" class="btn btn-signup">Sign Up</a>
+                    </div>
+                    <% } %>
+        </div>
+    </div>
+</body>
+
+</html>

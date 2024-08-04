@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGIN PAGE</title>
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+
+<body class="dark-theme">
+    <div id="auth-container" class="container">
+        <a id="back-link" class="backswitch" href="/">HOME</a>
+        <h3 id="login-title" class="auth-title">Login</h3>
+        <form id="login-form" class="auth-form" action="/auth/login" method="POST">
+            <div class="form-group">
+                <label for="email" class="form-label">Email:</label>
+                <input id="email" class="form-input" type="email" name="email" required placeholder="example@xyz.abc">
+            </div>
+            <div class="form-group">
+                <label for="password" class="form-label">Password:</label>
+                <input id="password" class="form-input" type="password" name="password" required placeholder="********">
+            </div>
+            <button id="login-button" class="auth-button" type="submit">Login</button>
+        </form>
+        <div class="auth-links">
+            <a id="forgot-password-link" class="auth-link" href="/auth/forgot-password">Forgot Password</a>
+            <a id="google-login-link" class="auth-link" href="/auth/google">Login with Google</a>
+            <a id="signup-link" class="auth-link" href="/auth/signup">Sign Up</a>
+        </div>
+        <% if (error) { %>
+            <p id="error-message" class="error-message">
+                <%= error %>
+            </p>
+            <% } %>
+    </div>
+</body>
+
+</html>
